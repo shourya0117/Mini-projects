@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: grid;
+    place-items: center;
+    height: calc(100vh - 3rem);
+}
+button{
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bolder;
+}
+button:hover{
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+}
+h2:hover{
+    transition: 0.5s;
+    transform:translateY(10px);
+}

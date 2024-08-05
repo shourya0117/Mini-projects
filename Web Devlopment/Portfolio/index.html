@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="header">
+        <nav class="logo">
+            𝒫𝒪𝑅𝒯𝐹𝒪𝐿𝐼𝒪
+        </nav>
+            <ul>
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+    </div>
+    <div class="intro">
+        <div class="text">
+            <h1>I'm <span></span></h1>
+        </div>
+        <div class="img">
+                <div class="self">
+                    <img src="images/IMG20240110184739.jpg" alt="">
+                </div>
+        </div>
+    </div>
+    <!-- ------------about---------------- -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/about.png">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About</h1>
+                    <p>Hello, I'm Shourya Verma, a freelance web designer and developer. I specialize in crafting visually appealing websites with a focus on seamless functionality. Proficient in HTML, CSS, and JavaScript, I bring creative solutions to life through detailed design and clean, efficient code. With a client-centric approach, I prioritize clear communication and collaboration, ensuring satisfaction by exceeding expectations. Let's connect and explore how we can bring your digital vision to life!</p>
+                    <div class="tab-title">
+                        <p class="tab-links active-link" onclick="opentab(skills)">Skills</p>
+                        <p class="tab-links" onclick="opentab(experience)">Experience</p>
+                    </div>
+                    <div class="contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Web development</span></li>
+                            <li><span>Web Designer</span></li>
+                            <li><span>HTML & CSS</span></li>
+                            <li><span>Js & Php</span></li>
+                            <li><span>Wordpress</span></li>
+                        </ul>
+                    </div>
+                    <div class="contents" id="experience">
+                        <ul>
+                            <li><span>links 1</span></li>
+                            <li><span>links 2</span></li>
+                            <li><span>links 3</span></li>
+                            <li><span>links 4</span></li>
+                            <li><span>links 5</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- -------------------portfolio---------------- -->
+    <div id="portfolio">
+        <div class="container">
+            <h1 class="sub-title">My work</h1>
+            <div class="work-list">
+                <div class="work">
+                    <img src="images/Screenshot 2024-01-12 154537.png" alt="">
+                    <div class="layer">
+                        <h3>Hover Effects</h3>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/Screenshot 2024-01-12 160441.png" alt="">
+                    <div class="layer">
+                        <h3>Parallax Effect</h3>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/Screenshot 2024-01-12 154647.png" alt="">
+                    <div class="layer">
+                        <h3>Sign Up / Login Page</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- -------------contact---------- -->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact Me</h1>
+                    <p><i class="fa fa-envelope"></i>shourya0117110@gmail.com</p>
+                    <p><i class="fa fa-phone" aria-hidden="true"></i>91+ 8619903808</p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/_.shourya.07_/?hl=en"><i class="fab fa-instagram" ></i></a>
+                    </div>
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="message" id="" cols="30" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright to Shourya Verma &copy; 2024</p>
+        </div>
+    </div>
+    <script>
+        let tablinks = document.getElementsByClassName("tab-links");
+        let contents = document.getElementsByClassName("contents");
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for(content of contents){
+                content.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            tabname.classList.add("active-tab");
+        }
+    </script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyY0tDY1RZQXomVuCHBrNEiwmnwYup0X2EC3bzt2QjlEkzS3rUuRLrkqfD4jL6jiQJSIw/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById('msg');
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Message sent successfully";
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                },5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+      <script>
+        const dynamicText = document.querySelector("h1 span");
+        const words = ["Shourya Verma","Web Developer","Web Designer","Freelancer"];
+
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        const typeEffect = () => {
+            const currentWord = words[wordIndex];
+            const currentChar = currentWord.substring(0, charIndex);
+            dynamicText.textContent = currentChar;
+
+            if(!isDeleting && charIndex < currentWord.length){
+                charIndex++;
+                setTimeout(typeEffect, 200);
+            }
+            else if(isDeleting && charIndex > 0){
+                charIndex--;
+                setTimeout(typeEffect, 100);
+            }
+            else{
+                isDeleting = !isDeleting;
+                wordIndex = !isDeleting ? (wordIndex + 1) % words.length : wordIndex;
+                setTimeout(typeEffect, 1200);
+            }
+        }
+        typeEffect();
+      </script>
+</body>
+</html>
